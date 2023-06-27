@@ -1,0 +1,23 @@
+.mmwacbSeparator {
+  background-color: black;
+  color: white;
+  position: relative;
+  z-index: 0;
+  padding: 4px !important;
+}
+.mmwacbSeparator:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, #333, #111);
+}
+.mmwacbSeparator h3 {
+  color: white;
+  margin: 4px 0;
+  line-height: 1.2;
+  font-size: 14px;
+}
