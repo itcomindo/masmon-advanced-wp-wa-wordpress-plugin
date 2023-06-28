@@ -12,6 +12,9 @@ function mmwpwa_load_scripts()
     } elseif ($mmwpwastyle == 'style2') {
         wp_enqueue_style('style2-css', plugins_url('scripts/style2.css', __FILE__), array(), '1.0.0', 'all');
         wp_enqueue_script('style2-js', plugins_url('scripts/style2.js', __FILE__), array('jquery'), '1.0.0', true);
+    } elseif ($mmwpwastyle == 'style3') {
+        wp_enqueue_style('style3-css', plugins_url('scripts/style3.css', __FILE__), array(), '1.0.0', 'all');
+        wp_enqueue_script('style3-js', plugins_url('scripts/style3.js', __FILE__), array('jquery'), '1.0.0', true);
     } else {
         // wait
     }

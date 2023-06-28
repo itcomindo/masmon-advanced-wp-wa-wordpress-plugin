@@ -1,0 +1,7 @@
+#mmwpwapr.style3.inactive {
+  transform: translateY(calc(100% + 60px));
+  -webkit-transform: translateY(calc(100% + 60px));
+  -moz-transform: translateY(calc(100% + 60px));
+  -ms-transform: translateY(calc(100% + 60px));
+  -o-transform: translateY(calc(100% + 60px));
+}
