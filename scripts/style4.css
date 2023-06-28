@@ -1,0 +1,185 @@
+#mmwpwapr.style4.inactive {
+  transform: translateY(calc(100% + 50px));
+  -webkit-transform: translateY(calc(100% + 50px));
+  -moz-transform: translateY(calc(100% + 50px));
+  -ms-transform: translateY(calc(100% + 50px));
+  -o-transform: translateY(calc(100% + 50px));
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -webkit-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -moz-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -ms-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -o-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+#mmwpwapr.style4.active {
+  border-radius: 25px 35px 0 35px;
+  -webkit-border-radius: 25px 35px 0 35px;
+  -moz-border-radius: 25px 35px 0 35px;
+  -ms-border-radius: 25px 35px 0 35px;
+  -o-border-radius: 25px 35px 0 35px;
+  overflow: hidden;
+}
+
+#mmwpwatoggleOpen {
+  cursor: pointer;
+}
+#mmwpwatoggleOpen.bottomright {
+  position: fixed;
+  bottom: 0;
+  right: 3rem;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#mmwpwatoggleOpen.bottomright span {
+  max-width: 100px;
+  position: relative;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 60%;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 8px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
+#mmwpwatoggleOpen.bottomright span:before {
+  content: "";
+  border-top: 10px solid #333333;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  bottom: -14px;
+  left: 14px;
+}
+
+#mmwpwatoggleOpen.bottomleft {
+  position: fixed;
+  bottom: 0;
+  left: 3rem;
+}
+
+#mmwpwatoggleOpen.bottomleft span {
+  position: absolute;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 60%;
+  top: -38px;
+  left: 0;
+  width: max-content;
+  height: 25px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 8px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+
+#mmwpwatoggleOpen.bottomleft span:before {
+  content: "";
+  border-top: 10px solid #333333;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid transparent;
+  position: absolute;
+  bottom: -14px;
+  left: 14px;
+}
+
+#mmwpwabot {
+  border-radius: 25px 35px 0 35px;
+  -webkit-border-radius: 25px 35px 0 35px;
+  -moz-border-radius: 25px 35px 0 35px;
+  -ms-border-radius: 25px 35px 0 35px;
+  -o-border-radius: 25px 35px 0 35px;
+  padding: 1rem 8px;
+  display: grid;
+  gap: 1rem;
+}
+
+.mmwpwaitem {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  padding: 8px 4px;
+  border-radius: 25px 35px 0 35px;
+  -webkit-border-radius: 25px 35px 0 35px;
+  -moz-border-radius: 25px 35px 0 35px;
+  -ms-border-radius: 25px 35px 0 35px;
+  -o-border-radius: 25px 35px 0 35px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mmwpwaright {
+  display: grid;
+  gap: 8px;
+}
+.mmwpwastaffwr.style4 {
+  background-color: #333333;
+  padding: 4px 12px;
+  position: relative;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  width: max-content;
+}
+.mmwpwastaffwr.style4:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  border-top: 7px solid transparent;
+  border-right: 7px solid #333333;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid transparent;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.staffname.style4 {
+  color: #ffffff;
+  font-size: 12px;
+}
+.staffjob.style4 {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.mmwpwabtnwr.style4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.mmwpwabtn {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}

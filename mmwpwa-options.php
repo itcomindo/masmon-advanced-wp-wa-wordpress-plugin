@@ -53,7 +53,7 @@ function mmwpwa_register_fields()
 
             //=========================select chat position=========================
             Field::make('select', 'mmwpwaposition', 'Select Position')
-                ->set_classes('mmwpwastylingsep-child')
+                ->set_classes('mmwpwastylingsep-child chatposition')
                 ->add_options([
                     'bottom-left' => 'Bottom Left',
                     'bottom-center' => 'Bottom Center',
@@ -73,6 +73,47 @@ function mmwpwa_register_fields()
                 ->set_help_text('Select First Load Condition for your Whatsapp box')
                 ->set_default_value('open')
                 ->set_width(33),
+
+            //=========================if mmwpwastyle is style4 then create select option to choose staff photo=========================
+            Field::make('select', 'mmwpwastaffphotogreeting', 'Staff Photo')
+                ->set_classes('mmwpwastylingsep-child')
+                ->add_options([
+                    's1' => 'Staff 1',
+                    's2' => 'Staff 2',
+                    's3' => 'Staff 3',
+                    's4' => 'Staff 4',
+                    's5' => 'Staff 5',
+                    's6' => 'Staff 6',
+                    's7' => 'Staff 7',
+                    's8' => 'Staff 8',
+                    's9' => 'Staff 9',
+                    's10' => 'Staff 10',
+                    's11' => 'Staff 11',
+                ])
+                ->set_help_text('Select Staff Photo for your Whatsapp box')
+                ->set_width(33)
+                ->set_conditional_logic([
+                    [
+                        'field' => 'mmwpwastyle',
+                        'value' => 'style4',
+                    ],
+                ]),
+
+
+            //=========================text in callout========================
+            Field::make('text', 'mmwpwacallouttext', 'Callout Text')
+                ->set_classes('mmwpwastylingsep-child')
+                ->set_help_text('Callout Text for your Whatsapp box, ketik misal: Hello, selamat datang di website kami.')
+                ->set_width(33)
+                ->set_default_value('Hello, selamat datang di website kami.')
+                ->set_conditional_logic([
+                    [
+                        'field' => 'mmwpwastyle',
+                        'value' => 'style4',
+                    ],
+                ]),
+
+
 
 
 

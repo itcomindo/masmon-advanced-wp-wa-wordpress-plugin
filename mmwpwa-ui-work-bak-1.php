@@ -41,30 +41,14 @@ function mmwpwa_containerbg()
 function mmwpwa_frontend()
 {
     $mmwpwa_template = mmwpwa_template();
-    if ($mmwpwa_template == 'style4') {
-        // data-photo
-        $dataphoto = 'data-photo="' . carbon_get_theme_option('mmwpwastaffphotogreeting') . '"';
-        // callout (just for: style 4)
-        $datacallout = carbon_get_theme_option('mmwpwacallouttext');
-        if (empty($datacallout)) {
-            $datacallout = 'data-callout="Customer Service is Here.."';
-        } else {
-            $datacallout = 'data-callout="' . carbon_get_theme_option('mmwpwacallouttext') . '"';
-        }
-    } else {
-        // do nothing
-    }
-
-    // first load
     $mmwpwafirstload = carbon_get_theme_option('mmwpwafirstload');
     if ($mmwpwafirstload == 'open') {
         $flstat = 'active';
     } else {
         $flstat = 'inactive';
     }
-
 ?>
-    <div id="mmwpwapr" class="<?php echo mmwpwa_template() . ' ' . mmwpwa_chat_position() . ' ' . $flstat ?> " style="background-color: <?php echo mmwpwa_containerbg(); ?>;" data-cond="<?php echo $mmwpwafirstload; ?>" data-style="<?php echo $mmwpwa_template; ?>" data-position="<?php echo  mmwpwa_chat_position(); ?>" <?php echo $dataphoto . ' ' . $datacallout ?>>
+    <div id="mmwpwapr" class="<?php echo mmwpwa_template() . ' ' . mmwpwa_chat_position() . ' ' . $flstat ?> " style="background-color: <?php echo mmwpwa_containerbg(); ?>;" data-cond="<?php echo $mmwpwafirstload; ?>" data-style="<?php echo $mmwpwa_template; ?>">
 
         <!-- toggle close and open -->
         <?php echo mmwpwa_closechatbutton(); ?>
@@ -355,7 +339,7 @@ function mmwpwa_complex_staff_data()
         }
 
         //=========================chat item styling=========================
-        $mmwpwachatitembg = carbon_get_theme_option('mmwpwaitembg');
+        $mmwpwachatitembg = carbon_get_theme_option('mmwpwachatitembg');
         if (empty($mmwpwachatitembg)) {
             $mmwpwachatitembg = '#f5f5f5';
         } else {
