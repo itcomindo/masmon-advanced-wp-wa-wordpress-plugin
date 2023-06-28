@@ -25,6 +25,7 @@ function mmwpwa_chat_position()
 
 
 //=========================container section=========================
+
 function mmwpwa_containerbg()
 {
     $containerbg = carbon_get_theme_option('mmwpwacontainerbg');
@@ -40,9 +41,14 @@ function mmwpwa_containerbg()
 
 function mmwpwa_frontend()
 {
+    $mmwpwa_template = mmwpwa_template();
     $mmwpwafirstload = carbon_get_theme_option('mmwpwafirstload');
-    if ($mmwpwafirstload == 'open') {
+    if ($mmwpwafirstload == 'open' && $mmwpwa_template == 'style1') {
         $flstat = 'active';
+    } elseif ($mmwpwafirstload == 'open' && $mmwpwa_template == 'style2') {
+        $flstat = 'active';
+    } elseif ($mmwpwafirstload == 'open' && $mmwpwa_template == 'style3') {
+        $flstat = 'inactive';
     } else {
         $flstat = 'inactive';
     }
@@ -75,9 +81,14 @@ add_action('wp_footer', 'show_mmwpwa_frontend', 100);
 //=========================toggle First Load=========================
 function mmwpwa_toggle_open()
 {
+    $mmwpwa_template = mmwpwa_template();
     $mmwpwafirstload = carbon_get_theme_option('mmwpwafirstload');
-    if ($mmwpwafirstload == 'open') {
+    if ($mmwpwafirstload == 'open' && $mmwpwa_template == 'style1') {
         $mmwpwafirstload = 'inactive';
+    } elseif ($mmwpwafirstload == 'open' && $mmwpwa_template == 'style2') {
+        $mmwpwafirstload = 'inactive';
+    } elseif ($mmwpwafirstload == 'open' && $mmwpwa_template == 'style3') {
+        $mmwpwafirstload = 'active';
     } else {
         $mmwpwafirstload = 'active';
     }
@@ -107,9 +118,14 @@ function mmwpwa_openchatbutton()
 
 function mmwpwa_toggle_close()
 {
+    $mmwpwa_template = mmwpwa_template();
     $mmwpwafirstload = carbon_get_theme_option('mmwpwafirstload');
-    if ($mmwpwafirstload == 'open') {
+    if ($mmwpwafirstload == 'open' && $mmwpwa_template == 'style1') {
         $mmwpwafirstload = 'active';
+    } elseif ($mmwpwafirstload == 'open' && $mmwpwa_template == 'style2') {
+        $mmwpwafirstload = 'active';
+    } elseif ($mmwpwafirstload == 'open' && $mmwpwa_template == 'style3') {
+        $mmwpwafirstload = 'inactive';
     } else {
         $mmwpwafirstload = 'inactive';
     }

@@ -5,3 +5,17 @@
   -ms-transform: translateY(calc(100% + 60px));
   -o-transform: translateY(calc(100% + 60px));
 }
+
+#mmwpwaopen.style3.active {
+  position: fixed;
+  top: calc(-200% + 60px + 2rem);
+  right: 0;
+  z-index: 8888;
+  width: 50px;
+  height: 50px;
+  transform: translateY(calc(100% + 60px + 2rem));
+  -webkit-transform: translateY(calc(100% + 60px + 2rem));
+  -moz-transform: translateY(calc(100% + 60px + 2rem));
+  -ms-transform: translateY(calc(100% + 60px + 2rem));
+  -o-transform: translateY(calc(100% + 60px + 2rem));
+}
