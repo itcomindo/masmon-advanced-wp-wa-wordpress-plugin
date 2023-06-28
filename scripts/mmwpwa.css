@@ -22,7 +22,9 @@
   bottom: 4px;
   right: 4px;
 }
-
+.mmwpwagreeting {
+  font-size: 15px;
+}
 #mmwpwaclose.inactive {
   display: none;
 }

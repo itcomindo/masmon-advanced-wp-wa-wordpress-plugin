@@ -150,7 +150,6 @@ function mmwpwa_website_logo()
     }
     $mmwpwalogo = carbon_get_theme_option('mmwpwalogo');
     if (empty($mmwpwalogo)) {
-        // load fontawesome icon
     ?>
         <div class="mmwpwalogo <?php echo mmwpwa_template(); ?>" <?php echo $topbgstyle; ?>>
             <i>
@@ -174,7 +173,7 @@ function mmwpwa_top_section()
 {
     $mmwpwatopbg = carbon_get_theme_option('mmwpwatopbg');
     $mmwpwatoptext = carbon_get_theme_option('mmwpwatoptext');
-    $mmwpwatopgreeting = carbon_get_theme_option('mmwpwatopgreeting');
+    $mmwpwatopgreeting = '<span class="mmwpwagreeting">' . carbon_get_theme_option('mmwpwatopgreeting') . '</span>';
     ?>
     <div id="mmwpwatop" style="background-color: <?php echo $mmwpwatopbg; ?>; color: <?php echo $mmwpwatoptext; ?>" class="<?php echo mmwpwa_template(); ?>">
         <?php echo mmwpwa_website_logo() . ' ' . $mmwpwatopgreeting ?>
