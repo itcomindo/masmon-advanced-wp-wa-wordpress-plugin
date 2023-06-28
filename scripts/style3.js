@@ -75,5 +75,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
+
+        /*=========================jQuery end above this line=========================*/
+
     });
 });
