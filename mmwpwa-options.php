@@ -10,7 +10,6 @@ function mmwpwa_register_fields()
     Container::make('theme_options', 'WP WA Options')
         ->add_fields([
             //=========================Fields Start=========================
-
             Field::make('checkbox', 'mmwpwashrinkall', 'Shrink All')
                 ->set_option_value('yes')
                 ->set_default_value(false)
@@ -236,6 +235,7 @@ function mmwpwa_register_fields()
 
             //=========================logo background color if mmwpwastyle is style2=========================
             Field::make('color', 'mmwpwalogobg', 'Logo Background Color')
+                ->set_help_text('Logo background color is just for style2')
                 ->set_default_value('#01A356')
                 ->set_conditional_logic([
                     [
@@ -244,6 +244,43 @@ function mmwpwa_register_fields()
                     ],
                 ])
                 ->set_classes('mmwpwalogoandotherstylingsep-child'),
+
+
+            // input to disable in specific category by id
+            Field::make('text', 'mmwpwadisableincategory', 'Disable in Category')
+                ->set_classes('mmwpwalogoandotherstylingsep-child')
+                ->set_help_text('Enter Category ID seperate by comma to disable WP WA in that category: contoh: 1,2,3')
+                ->set_width(33),
+
+            // input to disable in specific post by id
+            Field::make('text', 'mmwpwadisableinpost', 'Disable in Post')
+                ->set_classes('mmwpwalogoandotherstylingsep-child')
+                ->set_help_text('Enter Post ID seperate by comma to disable WP WA in that post: contoh: 1,2,3')
+                ->set_width(33),
+
+            // input to disable in specific page by id
+            Field::make('text', 'mmwpwadisableinpage', 'Disable in Page')
+                ->set_classes('mmwpwalogoandotherstylingsep-child')
+                ->set_help_text('Enter Page ID seperate by comma to disable WP WA in that page: contoh: 1,2,3')
+                ->set_width(33),
+
+            // input to disable in specific tag by id
+            Field::make('text', 'mmwpwadisableintag', 'Disable in Tag')
+                ->set_classes('mmwpwalogoandotherstylingsep-child')
+                ->set_help_text('Enter Tag ID seperate by comma to disable WP WA in that tag: contoh: 1,2,3')
+                ->set_width(33),
+
+            // input to disable in specific author by id
+            Field::make('text', 'mmwpwadisableinauthor', 'Disable in Author')
+                ->set_classes('mmwpwalogoandotherstylingsep-child')
+                ->set_help_text('Enter Author ID seperate by comma to disable WP WA in that author: contoh: 1,2,3')
+                ->set_width(33),
+
+            // input to disable in specific custom post type by id
+            Field::make('text', 'mmwpwadisableincustomposttype', 'Disable in Custom Post Type')
+                ->set_classes('mmwpwalogoandotherstylingsep-child')
+                ->set_help_text('Enter Custom Post Type ID seperate by comma to disable WP WA in that custom post type: contoh: 1,2,3')
+                ->set_width(33),
 
 
             //=========================open chat text=========================
