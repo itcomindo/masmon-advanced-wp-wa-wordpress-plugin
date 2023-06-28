@@ -408,4 +408,5 @@ function mmwpwa_timezone()
     $datetime = new DateTime('now', $tz_object);
     $time = $datetime->format('Hi');
     return $time;
+    // wait for use later
 }
