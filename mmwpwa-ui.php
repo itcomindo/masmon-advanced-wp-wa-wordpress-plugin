@@ -40,6 +40,7 @@ function mmwpwa_containerbg()
 
 function mmwpwa_frontend()
 {
+    $mmwpwa_template = mmwpwa_template();
     $mmwpwafirstload = carbon_get_theme_option('mmwpwafirstload');
     if ($mmwpwafirstload == 'open') {
         $flstat = 'active';
@@ -47,7 +48,7 @@ function mmwpwa_frontend()
         $flstat = 'inactive';
     }
 ?>
-    <div id="mmwpwapr" class="<?php echo mmwpwa_template() . ' ' . mmwpwa_chat_position() . ' ' . $flstat ?> " style="background-color: <?php echo mmwpwa_containerbg(); ?>;" data-cond="<?php echo $mmwpwafirstload; ?>">
+    <div id="mmwpwapr" class="<?php echo mmwpwa_template() . ' ' . mmwpwa_chat_position() . ' ' . $flstat ?> " style="background-color: <?php echo mmwpwa_containerbg(); ?>;" data-cond="<?php echo $mmwpwafirstload; ?>" data-style="<?php echo $mmwpwa_template; ?>">
 
         <!-- toggle close and open -->
         <?php echo mmwpwa_closechatbutton(); ?>
