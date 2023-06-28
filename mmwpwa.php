@@ -51,4 +51,8 @@ add_action('admin_enqueue_scripts', 'mmwpwa_admin_enqueue_scripts');
 function mmwpwa_admin_enqueue_scripts()
 {
     wp_enqueue_style('mmwpwa-admin-css', plugins_url('mmwpwa-admin.css', __FILE__));
+    wp_enqueue_script('mmwpwa-admin-js', plugins_url('mmwpwa-admin.js', __FILE__), array(), '1.0.0', true);
 }
+
+include 'mmwpwa-core.php';
+include 'mmwpwa-ui.php';

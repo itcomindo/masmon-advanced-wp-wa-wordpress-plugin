@@ -1,0 +1,182 @@
+#mmwpwapr.style1.active {
+  border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  -ms-border-radius: 10px 10px 0 0;
+  -o-border-radius: 10px 10px 0 0;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -webkit-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -moz-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -ms-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -o-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+#mmwpwapr.style1.inactive {
+  transform: translateY(calc(100% - 5rem));
+  -webkit-transform: translateY(calc(100% - 5rem));
+  -moz-transform: translateY(calc(100% - 5rem));
+  -ms-transform: translateY(calc(100% - 5rem));
+  -o-transform: translateY(calc(100% - 5rem));
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -webkit-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -moz-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -ms-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -o-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+}
+
+#mmwpwaclose.style1.active {
+  position: absolute;
+  font-size: 12px;
+  line-height: 1.2;
+  top: -2rem;
+  right: 0;
+  padding: 4px;
+  background-color: #333333;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+#mmwpwaopen.style1.active {
+  position: absolute;
+  font-size: 12px;
+  line-height: 1.2;
+  top: -2rem;
+  right: 0;
+  padding: 4px;
+  background-color: #333333;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+#mmwpwatop.style1 {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  padding: 4px;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  -ms-border-radius: 10px 10px 0 0;
+  -o-border-radius: 10px 10px 0 0;
+  height: 5rem;
+  overflow: hidden;
+}
+.mmwpwalogo.style1 {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#mmwpwatop.style1 .mmwpwalogo.style1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mmwpwalogo.style1 i {
+  font-size: 48px;
+  fill: white;
+}
+
+#mmwpwabot.style1 {
+  padding: 8px;
+  display: grid;
+  gap: 8px;
+}
+
+.mmwpwaitem.style1 {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 8px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 8px 4px;
+}
+.mmwpwaleft.style1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mmwpwaleft.style1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mmwpwaright.style1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 4px;
+}
+
+.mmwpwastaffwr.style1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.mmwpwabtnwr.style1 {
+  display: grid;
+  gap: 4px;
+  justify-content: center;
+  width: 100%;
+}
+
+.mmwpwacallbtn.style1,
+.mmwpwachatbtn.style1 {
+  font-size: 12px;
+  width: 100%;
+  line-height: 1.2;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}

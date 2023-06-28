@@ -1,11 +1,19 @@
-.mmwacbSeparator {
+.mmwacbseparator {
   background-color: black;
   color: white;
   position: relative;
   z-index: 0;
   padding: 4px !important;
+  cursor: pointer;
 }
-.mmwacbSeparator:before {
+.mmwacbseparator .cf-field__help {
+  color: #fff;
+  font-size: 80% !important;
+  position: relative;
+  top: -12px;
+  line-height: 1;
+}
+.mmwacbseparator:before {
   content: "";
   width: 100%;
   height: 100%;
@@ -15,9 +23,21 @@
   z-index: -1;
   background: linear-gradient(to bottom, #333, #111);
 }
-.mmwacbSeparator h3 {
+.mmwacbseparator h3 {
   color: white;
   margin: 4px 0;
   line-height: 1.2;
   font-size: 14px;
+}
+.mmwpwared.mmwpwabold {
+  font-weight: bold;
+  color: red;
+}
+.mmwpwafieldhead1 > .cf-field__head label {
+  font-weight: bold;
+  font-size: 14px;
+  background-color: black;
+  color: white !important;
+  width: max-content;
+  padding: 4px;
 }

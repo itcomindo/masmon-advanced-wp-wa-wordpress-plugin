@@ -1,0 +1,46 @@
+#mmwpwapr * {
+  box-sizing: border-box;
+}
+#mmwpwapr {
+  position: fixed;
+  width: 300px;
+  box-sizing: border-box;
+  z-index: 999;
+}
+#mmwpwapr.bottomleft {
+  bottom: 4px;
+  left: 4px;
+}
+
+#mmwpwapr.bottomcenter {
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#mmwpwapr.bottomright {
+  bottom: 4px;
+  right: 4px;
+}
+
+#mmwpwaclose.inactive {
+  display: none;
+}
+#mmwpwaopen.inactive {
+  display: none;
+}
+#mmwpwabot {
+  padding: 4px;
+}
+.mmwpwaitem {
+  width: 100%;
+}
+.staffname {
+  font-size: 15px;
+  font-weight: 700;
+}
+.staffjob {
+  font-size: 13px;
+  font-weight: 400;
+  color: #666666;
+}
