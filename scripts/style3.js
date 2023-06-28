@@ -30,6 +30,28 @@ window.addEventListener('DOMContentLoaded', (event) => {
             }, 250));
         });
 
+        /*=========================Chat Number=========================*/
+        const chatNumber = jQuery('.mmwpwachatbtn').data('wa');
+        // when click on chat button then open whatsapp chat
+        jQuery('.mmwpwachatbtn').click(function () {
+            window.open('https://api.whatsapp.com/send?phone=' + chatNumber);
+        });
+
+        /*=========================Call Number=========================*/
+        const callNumber = jQuery('.mmwpwacallbtn').data('call');
+        // when click on call button then open call
+        jQuery('.mmwpwacallbtn').click(function () {
+            window.open('tel:' + callNumber);
+        });
+
+        /*=========================Disabled Staff=========================*/
+        jQuery('.mmwpwaitem.disabled').remove();
+        jQuery('.mmwpwachatbtn.disabled').remove();
+        jQuery('.mmwpwacallbtn.disabled').remove();
+
+
+
+
 
 
 
