@@ -40,12 +40,6 @@ function mmwpwa_register_fields()
                     'style2' => 'Style 2',
                     'style3' => 'Style 3',
                     'style4' => 'Style 4',
-                    'style5' => 'Style 5',
-                    'style6' => 'Style 6',
-                    'style7' => 'Style 7',
-                    'style8' => 'Style 8',
-                    'style9' => 'Style 9',
-                    'style10' => 'Style 10',
                 ])
                 ->set_help_text('Select Style for your Whatsapp box')
                 ->set_width(33),
