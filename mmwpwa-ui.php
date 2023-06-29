@@ -377,31 +377,27 @@ function mmwpwa_complex_staff_data()
         if (empty($standardmessage)) {
             $chatmessage = "Halo,%20saya%20ingin%20bertanya%20tentang%20produk%20anda";
         } else {
-            $chatmessage = $staff['mmwpwacustomwamessagestext'];
+            $chatmessage = str_replace(' ', '%20', $staff['mmwpwacustomwamessagestext']);
         }
 
         $includeposttitle = $staff['mmwpwaincludeposttitle'];
         $includewoo = $staff['mmwpwaincludewoocommerceproducttitle'];
 
-        if ($includeposttitle == true) {
-            if (is_singular('post')) {
-                $mmwpwaTheTitle = get_the_title();
-                $chatmessage = $staff['mmwpwacustomwamessagestextwithposttitle'];
-                if (empty($chatmessage)) {
-                    $chatmessage = 'Hi,%20mohon%20info%20tentang%20' . $mmwpwaTheTitle . '%20ya';
-                } else {
-                    $chatmessage = $chatmessage . '*' . $mmwpwaTheTitle . '*';
-                }
+        if ($includeposttitle == true && is_singular('post')) {
+            $mmwpwaTheTitle = str_replace(' ', '%20', get_the_title());
+            $chatmessage = str_replace(' ', '%20', $staff['mmwpwacustomwamessagestextwithposttitle']);
+            if (empty($chatmessage)) {
+                $chatmessage = 'Hi,%20mohon%20info%20tentang%20' . $mmwpwaTheTitle . '%20ya';
+            } else {
+                $chatmessage = $chatmessage . '*' . $mmwpwaTheTitle . '*';
             }
-        } elseif ($includewoo == true) {
-            if (is_singular('product')) {
-                $mmwpwaTheTitle = get_the_title();
-                $chatmessage = $staff['mmwpwacustomwamessagestextwithwoocommerceproducttitle'];
-                if (empty($chatmessage)) {
-                    $chatmessage = 'Hi,%20mohon%20info%20produk%20' . $mmwpwaTheTitle . '%20ya';
-                } else {
-                    $chatmessage = $chatmessage . '*' . $mmwpwaTheTitle . '*';
-                }
+        } elseif ($includewoo == true && is_singular('product')) {
+            $mmwpwaTheTitle = str_replace(' ', '%20', get_the_title());
+            $chatmessage = str_replace(' ', '%20', $staff['mmwpwacustomwamessagestextwithwoocommerceproducttitle']);
+            if (empty($chatmessage)) {
+                $chatmessage = 'Hi,%20mohon%20info%20produkx%20' . $mmwpwaTheTitle . '%20ya';
+            } else {
+                $chatmessage = $chatmessage . '*' . $mmwpwaTheTitle . '*';
             }
         } else {
             $chatmessage = $chatmessage;
