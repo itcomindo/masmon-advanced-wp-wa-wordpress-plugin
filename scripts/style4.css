@@ -17,6 +17,11 @@
   -ms-border-radius: 25px 35px 0 35px;
   -o-border-radius: 25px 35px 0 35px;
   overflow: hidden;
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -webkit-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -moz-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -ms-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  -o-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
 }
 
 #mmwpwatoggleOpen {

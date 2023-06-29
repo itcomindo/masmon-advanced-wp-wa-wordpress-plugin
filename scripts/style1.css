@@ -165,13 +165,7 @@
 
 .mmwpwacallbtn.style1,
 .mmwpwachatbtn.style1 {
-  font-size: 12px;
   width: 100%;
-  line-height: 1.2;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
