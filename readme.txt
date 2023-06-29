@@ -15,7 +15,7 @@ Advanced WP WA Masmon adalah plugin Wordpress untuk menghadirkan fitur chat What
 - dll
 
 
-<img src="//budiharyono.com/repo/wp-content/uploads/advanced-wp-wa-masmon.jpg">
+<img src="https://github.com/itcomindo/masmon-advanced-wp-wa-wordpress-plugin/blob/main/advanced-wp-wa-masmon.jpg">
 
 
 
