@@ -41,30 +41,14 @@ function mmwpwa_containerbg()
 function mmwpwa_frontend()
 {
     $mmwpwa_template = mmwpwa_template();
-    if ($mmwpwa_template == 'style4') {
-        // data-photo
-        $dataphoto = 'data-photo="' . carbon_get_theme_option('mmwpwastaffphotogreeting') . '"';
-        // callout (just for: style 4)
-        $datacallout = carbon_get_theme_option('mmwpwacallouttext');
-        if (empty($datacallout)) {
-            $datacallout = 'data-callout="Customer Service is Here.."';
-        } else {
-            $datacallout = 'data-callout="' . carbon_get_theme_option('mmwpwacallouttext') . '"';
-        }
-    } else {
-        // do nothing
-    }
-
-    // first load
     $mmwpwafirstload = carbon_get_theme_option('mmwpwafirstload');
     if ($mmwpwafirstload == 'open') {
         $flstat = 'active';
     } else {
         $flstat = 'inactive';
     }
-
 ?>
-    <div id="mmwpwapr" class="<?php echo mmwpwa_template() . ' ' . mmwpwa_chat_position() . ' ' . $flstat ?> " style="background-color: <?php echo mmwpwa_containerbg(); ?>;" data-cond="<?php echo $mmwpwafirstload; ?>" data-style="<?php echo $mmwpwa_template; ?>" data-position="<?php echo  mmwpwa_chat_position(); ?>" <?php echo $dataphoto . ' ' . $datacallout ?>>
+    <div id="mmwpwapr" class="<?php echo mmwpwa_template() . ' ' . mmwpwa_chat_position() . ' ' . $flstat ?> " style="background-color: <?php echo mmwpwa_containerbg(); ?>;" data-cond="<?php echo $mmwpwafirstload; ?>" data-style="<?php echo $mmwpwa_template; ?>">
 
         <!-- toggle close and open -->
         <?php echo mmwpwa_closechatbutton(); ?>
@@ -160,8 +144,7 @@ function mmwpwa_website_logo()
     $mmwpwalogobg = carbon_get_theme_option('mmwpwalogobg');
     $mmwpwastyle = carbon_get_theme_option('mmwpwastyle');
     if ($mmwpwastyle == 'style2') {
-        // $topbgstyle = 'style="background-color: ' . $mmwpwalogobg . ';"';
-        $topbgstyle = 'data-bg="' . $mmwpwalogobg . '"';
+        $topbgstyle = 'style="background-color: ' . $mmwpwalogobg . ';"';
     } else {
         $topbgstyle = '';
     }
@@ -192,7 +175,7 @@ function mmwpwa_top_section()
     $mmwpwatoptext = carbon_get_theme_option('mmwpwatoptext');
     $mmwpwatopgreeting = '<span class="mmwpwagreeting">' . carbon_get_theme_option('mmwpwatopgreeting') . '</span>';
     ?>
-    <div id="mmwpwatop" class="<?php echo mmwpwa_template(); ?>" data-bg="<?php echo $mmwpwatopbg; ?>" data-color="<?php echo $mmwpwatoptext; ?>">
+    <div id="mmwpwatop" style="background-color: <?php echo $mmwpwatopbg; ?>; color: <?php echo $mmwpwatoptext; ?>" class="<?php echo mmwpwa_template(); ?>">
         <?php echo mmwpwa_website_logo() . ' ' . $mmwpwatopgreeting ?>
     </div>
 <?php
@@ -201,9 +184,9 @@ function mmwpwa_top_section()
 //=========================bottom section=========================
 function mmwpwa_bottom_section()
 {
-    $mmwpwabottombg = 'data-bg="' . carbon_get_theme_option('mmwpwabottombg') . '"';
+    $mmwpwabottombg = carbon_get_theme_option('mmwpwabottombg');
 ?>
-    <div id="mmwpwabot" class="<?php echo mmwpwa_template(); ?>" <?php echo $mmwpwabottombg; ?>>
+    <div id="mmwpwabot" style="background-color: <?php echo $mmwpwabottombg; ?>;" class="<?php echo mmwpwa_template(); ?>">
         <?php echo mmwpwa_complex_staff_data(); ?>
     </div>
     <?php
@@ -279,36 +262,13 @@ function mmwpwa_complex_staff_data()
         $staffchatnumber = substr_replace($staffchatnumber, '62', 0, 1);
         $staffchatnumber = str_replace('-', '', $staffchatnumber);
 
-        if (is_single()) {
-            $mmwpwaincludeposttitle = $staff['mmwpwaincludeposttitle'];
-            if ($mmwpwaincludeposttitle == true) {
-                $mmwpwacustomwamessagestextwithposttitle = $staff['mmwpwacustomwamessagestextwithposttitle'];
-                $mmwpwaPostTitle = get_the_title();
-                $mmwpwaPostTitle = str_replace(' ', '%20', $mmwpwaPostTitle);
-                $chatmessage = $mmwpwacustomwamessagestextwithposttitle . '*' . $mmwpwaPostTitle . '*';
-                if (empty($mmwpwacustomwamessagestextwithposttitle)) {
-                    $staffchatnumber = $staffchatnumber . '&text=tanya%20produk ' . $mmwpwaPostTitle;
-                } else {
-                    $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
-                }
-            } else {
-                $chatmessage = $chatmessage;
-                if (empty($chatmessage)) {
-                    $staffchatnumber = $staffchatnumber;
-                } else {
-                    $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
-                }
-            }
+        if (empty($chatmessage)) {
+            $staffchatnumber = $staffchatnumber;
         } else {
-            $chatmessage = $chatmessage;
-            if (empty($chatmessage)) {
-                $staffchatnumber = $staffchatnumber;
-            } else {
-                $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
-            }
+            $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
         }
 
-
+        //=========================wa custom text message=========================
 
 
 
@@ -379,7 +339,7 @@ function mmwpwa_complex_staff_data()
         }
 
         //=========================chat item styling=========================
-        $mmwpwachatitembg = carbon_get_theme_option('mmwpwaitembg');
+        $mmwpwachatitembg = carbon_get_theme_option('mmwpwachatitembg');
         if (empty($mmwpwachatitembg)) {
             $mmwpwachatitembg = '#f5f5f5';
         } else {
@@ -393,8 +353,6 @@ function mmwpwa_complex_staff_data()
         }
 
         $chatitemstyling = 'style="background-color:' . $mmwpwachatitembg . '; color:' . $mmwpwachatitemtext . ';"';
-
-        $chatitemstyling = 'data-bg="' . $mmwpwachatitembg . '" data-color="' . $mmwpwachatitemtext . '"';
 
     ?>
         <div class="mmwpwaitem <?php echo mmwpwa_template() . ' ' . $staffstatus ?>" <?php echo $chatitemstyling; ?>>
@@ -422,12 +380,12 @@ function mmwpwa_complex_staff_data()
                 <div class="mmwpwabtnwr <?php echo mmwpwa_template(); ?>">
 
                     <!-- chat button -->
-                    <div class="mmwpwabtn mmwpwachatbtn <?php echo mmwpwa_template() . ' ' . $chat ?>" data-bg="<?php echo $chatbgcolor; ?>" data-color="<?php echo $chattextcolor; ?>" data-wa="<?php echo $staffchatnumber; ?>">
+                    <div style="background-color:<?php echo $chatbgcolor; ?>; color:<?php echo $chattextcolor; ?>" class="mmwpwabtn mmwpwachatbtn <?php echo mmwpwa_template() . ' ' . $chat ?>" data-wa="<?php echo $staffchatnumber; ?>">
                         <?php echo $chattext; ?>
                     </div>
 
                     <!-- call button -->
-                    <div class="mmwpwabtn mmwpwacallbtn <?php echo mmwpwa_template() . ' ' . $call ?>" data-bg="<?php echo $callbgcolor; ?>" data-color="<?php echo $calltextcolor; ?>" data-call="<?php echo $staffcallnumber; ?>">
+                    <div style="background-color:<?php echo $callbgcolor; ?>; color:<?php echo $calltextcolor; ?>;" class="mmwpwabtn mmwpwacallbtn <?php echo mmwpwa_template() . ' ' . $call ?>" data-call="<?php echo $staffcallnumber; ?>">
                         <?php echo $calltext; ?>
                     </div>
                 </div>

@@ -77,17 +77,52 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
 
 
-
-
-
-
-
         // when page loaded then check if mmwpwashrinkall is true then check the checkbox.
         if (localStorage.getItem('mmwpwashrinkall') === 'true') {
             jQuery(mmwpwashrinkall).prop('checked', true);
         } else {
             jQuery(mmwpwashrinkall).prop('checked', false);
         }
+
+        /**
+        =========================
+        *NAME: Conditional For select mmwpwastylingsep-child
+        *=========================
+        */
+        // get the value from select where it's child of div .mmwpwastylingsep-child
+        const mmwpwastylingsepchild = jQuery('.mmwpwastylingsep-child select').val();
+        console.log(mmwpwastylingsepchild);
+
+        // if mmwpwastylingsepchild is style4, then remove option in chatPosition that have value bottom-center
+        if (mmwpwastylingsepchild === 'style4') {
+            jQuery('.chatposition select option[value="bottom-center"]').hide();
+        } else {
+            jQuery('.chatposition select option[value="bottom-center"]').show();
+        }
+
+        // on change select mmwpwastylingsepchild, if value is style4 then remove option in chatPosition that have value bottom-center
+        jQuery('.mmwpwastylingsep-child select').change(function () {
+            const mmwpwastylingsepchild = jQuery(this).val();
+            if (mmwpwastylingsepchild === 'style4') {
+                jQuery('.chatposition select option[value="bottom-center"]').hide();
+            } else {
+                jQuery('.chatposition select option[value="bottom-center"]').show();
+            }
+        });
+
+
+
+
+
+
+        // console.log(position);
+
+
+
+
+
+
+
 
 
 

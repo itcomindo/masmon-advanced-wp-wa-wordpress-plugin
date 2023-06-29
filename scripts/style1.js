@@ -51,6 +51,61 @@ window.addEventListener('DOMContentLoaded', (event) => {
         jQuery('.mmwpwacallbtn.disabled').remove();
 
 
+        /**
+        =========================
+        *NAME: CSS
+        *=========================
+        */
+
+        /*=========================data bg top #mmwpwatop=========================*/
+        const topBg = jQuery('#mmwpwatop').data('bg');
+        const topColor = jQuery('#mmwpwatop').data('color');
+        jQuery('#mmwpwatop').css({
+            'background-color': topBg,
+            'color': topColor
+        });
+
+
+        /*=========================Data bg logo=========================*/
+        const logoBg = jQuery('.mmwpwalogo').data('bg');
+        jQuery('.mmwpwalogo').css({
+            'background-color': logoBg
+        });
+
+        /*=========================Data bg mmwpwabot=========================*/
+        const botBg = jQuery('#mmwpwabot').data('bg');
+        jQuery('#mmwpwabot').css({
+            'background-color': botBg
+        });
+
+        /*=========================data bg and text .mmwpwaitem=========================*/
+        const itemBg = jQuery('.mmwpwaitem').data('bg');
+        const itemColor = jQuery('.mmwpwaitem').data('color');
+        jQuery('.mmwpwaitem').css({
+            'background-color': itemBg,
+            'color': itemColor
+        });
+
+        /*=========================Data Color Call=========================*/
+        const callBg = jQuery('.mmwpwacallbtn').data('bg');
+        const callcolor = jQuery('.mmwpwacallbtn').data('color');
+
+        jQuery('.mmwpwacallbtn').css({
+            'background-color': callBg,
+            'color': callcolor
+        });
+
+        /*=========================Data Color Chat=========================*/
+        const chatBg = jQuery('.mmwpwachatbtn').data('bg');
+        const chatcolor = jQuery('.mmwpwachatbtn').data('color');
+
+        jQuery('.mmwpwachatbtn').css({
+            'background-color': chatBg,
+            'color': chatcolor
+        });
+
+
+
 
 
 

@@ -52,7 +52,7 @@ function mmwpwa_register_fields()
 
             //=========================select chat position=========================
             Field::make('select', 'mmwpwaposition', 'Select Position')
-                ->set_classes('mmwpwastylingsep-child')
+                ->set_classes('mmwpwastylingsep-child chatposition')
                 ->add_options([
                     'bottom-left' => 'Bottom Left',
                     'bottom-center' => 'Bottom Center',
@@ -72,6 +72,47 @@ function mmwpwa_register_fields()
                 ->set_help_text('Select First Load Condition for your Whatsapp box')
                 ->set_default_value('open')
                 ->set_width(33),
+
+            //=========================if mmwpwastyle is style4 then create select option to choose staff photo=========================
+            Field::make('select', 'mmwpwastaffphotogreeting', 'Staff Photo')
+                ->set_classes('mmwpwastylingsep-child')
+                ->add_options([
+                    's1' => 'Staff 1',
+                    's2' => 'Staff 2',
+                    's3' => 'Staff 3',
+                    's4' => 'Staff 4',
+                    's5' => 'Staff 5',
+                    's6' => 'Staff 6',
+                    's7' => 'Staff 7',
+                    's8' => 'Staff 8',
+                    's9' => 'Staff 9',
+                    's10' => 'Staff 10',
+                    's11' => 'Staff 11',
+                ])
+                ->set_help_text('Select Staff Photo for your Whatsapp box')
+                ->set_width(33)
+                ->set_conditional_logic([
+                    [
+                        'field' => 'mmwpwastyle',
+                        'value' => 'style4',
+                    ],
+                ]),
+
+
+            //=========================text in callout========================
+            Field::make('text', 'mmwpwacallouttext', 'Callout Text')
+                ->set_classes('mmwpwastylingsep-child')
+                ->set_help_text('Callout Text for your Whatsapp box, ketik misal: Hello, selamat datang di website kami.')
+                ->set_width(33)
+                ->set_default_value('Hello, selamat datang di website kami.')
+                ->set_conditional_logic([
+                    [
+                        'field' => 'mmwpwastyle',
+                        'value' => 'style4',
+                    ],
+                ]),
+
+
 
 
 
@@ -407,11 +448,30 @@ function mmwpwa_register_fields()
                         ])
                         ->set_width(50),
 
+
+
                     //=========================Custom wa text messages=========================
                     Field::make('text', 'mmwpwacustomwamessagestext', 'Custom Whatsapp Text')
                         ->set_help_text('Custom Whatsapp Text')
-                        ->set_help_text('Contoh: Halo%20saya%20ingin%20bertanya%20tentang%20produk%20anda <span class="mmwpwared mmwpwabold">pisahkan spasi dengan %20</span>')
-                        ->set_attribute('placeholder', 'Halo%20saya%20ingin%20bertanya%20tentang%20produk%20anda')
+                        ->set_help_text('Contoh: Halo%20nama%20domain%20anda%20disini <span class="mmwpwared mmwpwabold">Note: pisahkan spasi dengan %20</span>')
+                        ->set_attribute('placeholder', 'Halo%20nama%20domain%20anda%20disini')
+                        ->set_conditional_logic([
+                            // create conditional logic for, if staff task is chat only or chat and call and mmwpwaincludeposttitle is not checked.
+                            'relation' => 'OR',
+                            [
+                                'field' => 'mmwpwastafftask',
+                                'value' => 'chatonly',
+                            ],
+                            [
+                                'field' => 'mmwpwastafftask',
+                                'value' => 'chatandcall',
+                            ]
+                        ]),
+
+                    //=========================checkbox untuk sertakan post title=========================
+                    Field::make('checkbox', 'mmwpwaincludeposttitle', 'Aktifkan Include Post Title')
+                        ->set_option_value('yes')
+                        ->set_help_text('Check this to include post title, contoh: jika post title anda berupa produk ayam goreng maka akan muncul di whatsapp: "Halo saya ingin bertanya tentang produk ayam goreng" atau sesuai dengan judul post Anda. <span class="mmwpwared mmwpwabold">Note: ini hanya berjalan pada taxonomy post saja (tidak include category dan tag)</span>. Pesan pada taxonomy category dan tag akan tetap menggunakan pesan yang Anda ketikan diatas.')
                         ->set_conditional_logic([
                             'relation' => 'OR',
                             [
@@ -423,6 +483,21 @@ function mmwpwa_register_fields()
                                 'value' => 'chatandcall',
                             ],
                         ]),
+
+                    //=========================input message untuk wa with post title=========================
+                    Field::make('text', 'mmwpwacustomwamessagestextwithposttitle', 'Custom Whatsapp Text with Post Title')
+                        ->set_help_text('Custom Whatsapp Text with Post Title')
+                        ->set_help_text('Contoh cukup Anda ketikan sbb: Halo%20saya%20ingin%20bertanya%20tentang%20produk%20 karena judul post akan ditambahkan otomatis diakhir kata yang Anda ketikan. <span class="mmwpwared mmwpwabold">pisahkan spasi dengan %20</span>')
+                        ->set_attribute('placeholder', 'Halo%20saya%20ingin%20bertanya%20tentang%20produk%20')
+                        ->set_conditional_logic([
+                            [
+                                'field' => 'mmwpwaincludeposttitle',
+                                'value' => true,
+                            ]
+                        ]),
+
+
+
 
 
 
