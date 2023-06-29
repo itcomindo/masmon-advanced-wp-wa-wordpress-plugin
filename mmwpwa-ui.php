@@ -273,40 +273,8 @@ function mmwpwa_complex_staff_data()
             $chattextcolor = $chattextcolor;
         }
 
-        //=========================wa number and message =========================
-        $staffchatnumber = $staff['mmwpwachatnumber'];
-        $chatmessage = $staff['mmwpwacustomwamessagestext'];
-        $staffchatnumber = substr_replace($staffchatnumber, '62', 0, 1);
-        $staffchatnumber = str_replace('-', '', $staffchatnumber);
 
-        if (is_singular('product') || is_singular('post')) {
-            $mmwpwaincludeposttitle = $staff['mmwpwaincludeposttitle'];
-            if ($mmwpwaincludeposttitle == true) {
-                $mmwpwacustomwamessagestextwithposttitle = $staff['mmwpwacustomwamessagestextwithposttitle'];
-                $mmwpwaPostTitle = get_the_title();
-                $mmwpwaPostTitle = str_replace(' ', '%20', $mmwpwaPostTitle);
-                $chatmessage = $mmwpwacustomwamessagestextwithposttitle . '*' . $mmwpwaPostTitle . '*';
-                if (empty($mmwpwacustomwamessagestextwithposttitle)) {
-                    $staffchatnumber = $staffchatnumber . '&text=tanya%20produk ' . $mmwpwaPostTitle;
-                } else {
-                    $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
-                }
-            } else {
-                $chatmessage = $chatmessage;
-                if (empty($chatmessage)) {
-                    $staffchatnumber = $staffchatnumber;
-                } else {
-                    $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
-                }
-            }
-        } else {
-            $chatmessage = $chatmessage;
-            if (empty($chatmessage)) {
-                $staffchatnumber = $staffchatnumber;
-            } else {
-                $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
-            }
-        }
+
 
 
 
@@ -396,6 +364,55 @@ function mmwpwa_complex_staff_data()
 
         $chatitemstyling = 'data-bg="' . $mmwpwachatitembg . '" data-color="' . $mmwpwachatitemtext . '"';
 
+
+        /**
+         *=========================
+         *NAME: Chat Number And Messages
+         *=========================
+         */
+
+
+        //=========================wa message =========================
+        $standardmessage = $staff['mmwpwacustomwamessagestext'];
+        if (empty($standardmessage)) {
+            $chatmessage = "Halo,%20saya%20ingin%20bertanya%20tentang%20produk%20anda";
+        } else {
+            $chatmessage = $staff['mmwpwacustomwamessagestext'];
+        }
+
+        $includeposttitle = $staff['mmwpwaincludeposttitle'];
+        $includewoo = $staff['mmwpwaincludewoocommerceproducttitle'];
+
+        if ($includeposttitle == true) {
+            if (is_singular('post')) {
+                $mmwpwaTheTitle = get_the_title();
+                $chatmessage = $staff['mmwpwacustomwamessagestextwithposttitle'];
+                if (empty($chatmessage)) {
+                    $chatmessage = 'Hi,%20mohon%20info%20tentang%20' . $mmwpwaTheTitle . '%20ya';
+                } else {
+                    $chatmessage = $chatmessage . '*' . $mmwpwaTheTitle . '*';
+                }
+            }
+        } elseif ($includewoo == true) {
+            if (is_singular('product')) {
+                $mmwpwaTheTitle = get_the_title();
+                $chatmessage = $staff['mmwpwacustomwamessagestextwithwoocommerceproducttitle'];
+                if (empty($chatmessage)) {
+                    $chatmessage = 'Hi,%20mohon%20info%20produk%20' . $mmwpwaTheTitle . '%20ya';
+                } else {
+                    $chatmessage = $chatmessage . '*' . $mmwpwaTheTitle . '*';
+                }
+            }
+        } else {
+            $chatmessage = $chatmessage;
+        }
+
+        //=========================wa number =========================
+        $staffchatnumber = $staff['mmwpwachatnumber'];
+        $staffchatnumber = substr_replace($staffchatnumber, '62', 0, 1);
+        $staffchatnumber = str_replace('-', '', $staffchatnumber) . '&text=' . $chatmessage;
+
+
     ?>
         <div class="mmwpwaitem <?php echo mmwpwa_template() . ' ' . $staffstatus ?>" <?php echo $chatitemstyling; ?>>
             <!-- staff left -->
@@ -451,4 +468,47 @@ function mmwpwa_timezone()
     $time = $datetime->format('Hi');
     return $time;
     // wait for use later
+}
+
+
+
+
+//=========================Chat Messages=========================
+function mmwpwa_the_wa_messagesss()
+{
+    $standardmessage = $staff['mmwpwacustomwamessagestext'];
+    if (empty($standardmessage)) {
+        // get blog url
+        $blogurl = get_bloginfo('url');
+        $chatmessage = "Halo,%20'.$blogurl.'";
+    } else {
+        $chatmessage = $staff['mmwpwacustomwamessagestext'];
+    }
+
+    $includeposttitle = $staff['mmwpwaincludeposttitle'];
+    $includewoo = $staff['mmwpwaincludewoocommerceproducttitle'];
+
+    if ($includeposttitle == true) {
+        if (is_singular('post')) {
+            $mmwpwaTheTitle = get_the_title();
+            $chatmessage = $staff['mmwpwacustomwamessagestextwithposttitle'];
+            if (empty($chatmessage)) {
+                $chatmessage = 'Hi,%20mohon%20info%20tentang%20' . $mmwpwaTheTitle . '%20ya';
+            } else {
+                $chatmessage = $chatmessage . '*' . $mmwpwaTheTitle . '*';
+            }
+        }
+    } elseif ($includewoo == true) {
+        if (is_singular('product')) {
+            $mmwpwaTheTitle = get_the_title();
+            $chatmessage = $staff['mmwpwacustomwamessagestextwithwoocommerceproducttitle'];
+            if (empty($chatmessage)) {
+                $chatmessage = 'Hi,%20mohon%20info%20produk%20' . $mmwpwaTheTitle . '%20ya';
+            } else {
+                $chatmessage = $chatmessage . '*' . $mmwpwaTheTitle . '*';
+            }
+        }
+    } else {
+        $chatmessage = $chatmessage;
+    }
 }
