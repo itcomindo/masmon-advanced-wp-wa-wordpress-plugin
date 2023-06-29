@@ -396,12 +396,12 @@ function mmwpwa_complex_staff_data()
                 <div class="mmwpwabtnwr <?php echo mmwpwa_template(); ?>">
 
                     <!-- chat button -->
-                    <div style="background-color:<?php echo $chatbgcolor; ?>; color:<?php echo $chattextcolor; ?>" class="mmwpwabtn mmwpwachatbtn <?php echo mmwpwa_template() . ' ' . $chat ?>" data-wa="<?php echo $staffchatnumber; ?>">
+                    <div class="mmwpwabtn mmwpwachatbtn <?php echo mmwpwa_template() . ' ' . $chat ?>" data-bg="<?php echo $chatbgcolor; ?>" data-color="<?php echo $chattextcolor; ?>" data-wa="<?php echo $staffchatnumber; ?>">
                         <?php echo $chattext; ?>
                     </div>
 
                     <!-- call button -->
-                    <div style="background-color:<?php echo $callbgcolor; ?>; color:<?php echo $calltextcolor; ?>;" class="mmwpwabtn mmwpwacallbtn <?php echo mmwpwa_template() . ' ' . $call ?>" data-call="<?php echo $staffcallnumber; ?>">
+                    <div class="mmwpwabtn mmwpwacallbtn <?php echo mmwpwa_template() . ' ' . $call ?>" data-bg="<?php echo $callbgcolor; ?>" data-color="<?php echo $calltextcolor; ?>" data-call="<?php echo $staffcallnumber; ?>">
                         <?php echo $calltext; ?>
                     </div>
                 </div>

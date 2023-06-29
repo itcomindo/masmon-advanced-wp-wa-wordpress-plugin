@@ -50,6 +50,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
         jQuery('.mmwpwachatbtn.disabled').remove();
         jQuery('.mmwpwacallbtn.disabled').remove();
 
+        /*=========================Data Color Call=========================*/
+        const callBg = jQuery('.mmwpwacallbtn').data('bg');
+        const callcolor = jQuery('.mmwpwacallbtn').data('color');
+
+        jQuery('.mmwpwacallbtn').css({
+            'background-color': callBg,
+            'color': callcolor
+        });
+
+        /*=========================Data Color Chat=========================*/
+        const chatBg = jQuery('.mmwpwachatbtn').data('bg');
+        const chatcolor = jQuery('.mmwpwachatbtn').data('color');
+
+        jQuery('.mmwpwachatbtn').css({
+            'background-color': chatBg,
+            'color': chatcolor
+        });
+
 
 
 

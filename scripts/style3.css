@@ -151,9 +151,7 @@
   height: 100%;
   gap: 8px;
 }
-.mmwpwabtn {
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.mmwpwabtn.style3 {
+  line-height: 1.2;
 }
