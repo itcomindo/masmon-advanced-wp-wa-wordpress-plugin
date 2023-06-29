@@ -14,6 +14,12 @@ Advanced WP WA Masmon adalah plugin Wordpress untuk menghadirkan fitur chat What
 - pilihan pilih warna background dan warna text untuk tombol chat dan telepon
 - dll
 
+
+<img src="//budiharyono.com/repo/wp-content/uploads/advanced-wp-wa-masmon.jpg">
+
+
+
+
 ==Instalasi==
 Plugin ini memerlukan plugin Carbon Fields v3.6.0 terinstall dan aktif didalam website Anda. Untuk instalasinya:
 
