@@ -279,7 +279,7 @@ function mmwpwa_complex_staff_data()
         $staffchatnumber = substr_replace($staffchatnumber, '62', 0, 1);
         $staffchatnumber = str_replace('-', '', $staffchatnumber);
 
-        if (is_single()) {
+        if (is_singular('product') || is_singular('post')) {
             $mmwpwaincludeposttitle = $staff['mmwpwaincludeposttitle'];
             if ($mmwpwaincludeposttitle == true) {
                 $mmwpwacustomwamessagestextwithposttitle = $staff['mmwpwacustomwamessagestextwithposttitle'];
