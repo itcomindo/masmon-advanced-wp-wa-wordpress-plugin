@@ -22,6 +22,7 @@
   -moz-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
   -ms-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
   -o-transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+  z-index: 99999;
 }
 
 #mmwpwatoggleOpen {
@@ -187,4 +188,6 @@
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
+  z-index: 99999;
+  position: relative;
 }

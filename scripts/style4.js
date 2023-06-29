@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const photoStaff = jQuery('#mmwpwapr').data('photo');
         const dataCallout = jQuery('#mmwpwapr').data('callout');
 
-        const toggleOpen = '<div id="mmwpwatoggleOpen" class="' + chatPosition + '"><span class="mmwpwacallout">' + dataCallout + '</span><img width="72" height="72" src="wp-content/plugins/masmon-wp-wa/images/' + photoStaff + '.png"></div>';
+        const toggleOpen = '<div id="mmwpwatoggleOpen" class="' + chatPosition + '"><span class="mmwpwacallout">' + dataCallout + '</span><img width="72" height="72" src="/wp-content/plugins/masmon-wp-wa/images/' + photoStaff + '.png"></div>';
 
         jQuery('#mmwpwapr').addClass('inactive').removeClass('active');
         jQuery('#mmwpwaopen, #mmwpwaclose, #mmwpwatop').remove();
