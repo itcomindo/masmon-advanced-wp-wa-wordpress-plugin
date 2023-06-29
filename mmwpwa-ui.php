@@ -160,7 +160,8 @@ function mmwpwa_website_logo()
     $mmwpwalogobg = carbon_get_theme_option('mmwpwalogobg');
     $mmwpwastyle = carbon_get_theme_option('mmwpwastyle');
     if ($mmwpwastyle == 'style2') {
-        $topbgstyle = 'style="background-color: ' . $mmwpwalogobg . ';"';
+        // $topbgstyle = 'style="background-color: ' . $mmwpwalogobg . ';"';
+        $topbgstyle = 'data-bg="' . $mmwpwalogobg . '"';
     } else {
         $topbgstyle = '';
     }
@@ -191,7 +192,7 @@ function mmwpwa_top_section()
     $mmwpwatoptext = carbon_get_theme_option('mmwpwatoptext');
     $mmwpwatopgreeting = '<span class="mmwpwagreeting">' . carbon_get_theme_option('mmwpwatopgreeting') . '</span>';
     ?>
-    <div id="mmwpwatop" style="background-color: <?php echo $mmwpwatopbg; ?>; color: <?php echo $mmwpwatoptext; ?>" class="<?php echo mmwpwa_template(); ?>">
+    <div id="mmwpwatop" class="<?php echo mmwpwa_template(); ?>" data-bg="<?php echo $mmwpwatopbg; ?>" data-color="<?php echo $mmwpwatoptext; ?>">
         <?php echo mmwpwa_website_logo() . ' ' . $mmwpwatopgreeting ?>
     </div>
 <?php
@@ -200,9 +201,9 @@ function mmwpwa_top_section()
 //=========================bottom section=========================
 function mmwpwa_bottom_section()
 {
-    $mmwpwabottombg = carbon_get_theme_option('mmwpwabottombg');
+    $mmwpwabottombg = 'data-bg="' . carbon_get_theme_option('mmwpwabottombg') . '"';
 ?>
-    <div id="mmwpwabot" style="background-color: <?php echo $mmwpwabottombg; ?>;" class="<?php echo mmwpwa_template(); ?>">
+    <div id="mmwpwabot" class="<?php echo mmwpwa_template(); ?>" <?php echo $mmwpwabottombg; ?>>
         <?php echo mmwpwa_complex_staff_data(); ?>
     </div>
     <?php
@@ -278,13 +279,36 @@ function mmwpwa_complex_staff_data()
         $staffchatnumber = substr_replace($staffchatnumber, '62', 0, 1);
         $staffchatnumber = str_replace('-', '', $staffchatnumber);
 
-        if (empty($chatmessage)) {
-            $staffchatnumber = $staffchatnumber;
+        if (is_single()) {
+            $mmwpwaincludeposttitle = $staff['mmwpwaincludeposttitle'];
+            if ($mmwpwaincludeposttitle == true) {
+                $mmwpwacustomwamessagestextwithposttitle = $staff['mmwpwacustomwamessagestextwithposttitle'];
+                $mmwpwaPostTitle = get_the_title();
+                $mmwpwaPostTitle = str_replace(' ', '%20', $mmwpwaPostTitle);
+                $chatmessage = $mmwpwacustomwamessagestextwithposttitle . '*' . $mmwpwaPostTitle . '*';
+                if (empty($mmwpwacustomwamessagestextwithposttitle)) {
+                    $staffchatnumber = $staffchatnumber . '&text=tanya%20produk ' . $mmwpwaPostTitle;
+                } else {
+                    $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
+                }
+            } else {
+                $chatmessage = $chatmessage;
+                if (empty($chatmessage)) {
+                    $staffchatnumber = $staffchatnumber;
+                } else {
+                    $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
+                }
+            }
         } else {
-            $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
+            $chatmessage = $chatmessage;
+            if (empty($chatmessage)) {
+                $staffchatnumber = $staffchatnumber;
+            } else {
+                $staffchatnumber = $staffchatnumber . '&text=' . $chatmessage;
+            }
         }
 
-        //=========================wa custom text message=========================
+
 
 
 
@@ -369,6 +393,8 @@ function mmwpwa_complex_staff_data()
         }
 
         $chatitemstyling = 'style="background-color:' . $mmwpwachatitembg . '; color:' . $mmwpwachatitemtext . ';"';
+
+        $chatitemstyling = 'data-bg="' . $mmwpwachatitembg . '" data-color="' . $mmwpwachatitemtext . '"';
 
     ?>
         <div class="mmwpwaitem <?php echo mmwpwa_template() . ' ' . $staffstatus ?>" <?php echo $chatitemstyling; ?>>

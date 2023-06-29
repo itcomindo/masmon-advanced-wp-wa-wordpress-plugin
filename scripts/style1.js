@@ -50,6 +50,42 @@ window.addEventListener('DOMContentLoaded', (event) => {
         jQuery('.mmwpwachatbtn.disabled').remove();
         jQuery('.mmwpwacallbtn.disabled').remove();
 
+
+        /**
+        =========================
+        *NAME: CSS
+        *=========================
+        */
+
+        /*=========================data bg top #mmwpwatop=========================*/
+        const topBg = jQuery('#mmwpwatop').data('bg');
+        const topColor = jQuery('#mmwpwatop').data('color');
+        jQuery('#mmwpwatop').css({
+            'background-color': topBg,
+            'color': topColor
+        });
+
+
+        /*=========================Data bg logo=========================*/
+        const logoBg = jQuery('.mmwpwalogo').data('bg');
+        jQuery('.mmwpwalogo').css({
+            'background-color': logoBg
+        });
+
+        /*=========================Data bg mmwpwabot=========================*/
+        const botBg = jQuery('#mmwpwabot').data('bg');
+        jQuery('#mmwpwabot').css({
+            'background-color': botBg
+        });
+
+        /*=========================data bg and text .mmwpwaitem=========================*/
+        const itemBg = jQuery('.mmwpwaitem').data('bg');
+        const itemColor = jQuery('.mmwpwaitem').data('color');
+        jQuery('.mmwpwaitem').css({
+            'background-color': itemBg,
+            'color': itemColor
+        });
+
         /*=========================Data Color Call=========================*/
         const callBg = jQuery('.mmwpwacallbtn').data('bg');
         const callcolor = jQuery('.mmwpwacallbtn').data('color');
@@ -67,7 +103,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
             'background-color': chatBg,
             'color': chatcolor
         });
-
 
 
 

@@ -411,11 +411,30 @@ function mmwpwa_register_fields()
                         ])
                         ->set_width(50),
 
+
+
                     //=========================Custom wa text messages=========================
                     Field::make('text', 'mmwpwacustomwamessagestext', 'Custom Whatsapp Text')
                         ->set_help_text('Custom Whatsapp Text')
-                        ->set_help_text('Contoh: Halo%20saya%20ingin%20bertanya%20tentang%20produk%20anda <span class="mmwpwared mmwpwabold">pisahkan spasi dengan %20</span>')
-                        ->set_attribute('placeholder', 'Halo%20saya%20ingin%20bertanya%20tentang%20produk%20anda')
+                        ->set_help_text('Contoh: Halo%20nama%20domain%20anda%20disini <span class="mmwpwared mmwpwabold">Note: pisahkan spasi dengan %20</span>')
+                        ->set_attribute('placeholder', 'Halo%20nama%20domain%20anda%20disini')
+                        ->set_conditional_logic([
+                            // create conditional logic for, if staff task is chat only or chat and call and mmwpwaincludeposttitle is not checked.
+                            'relation' => 'OR',
+                            [
+                                'field' => 'mmwpwastafftask',
+                                'value' => 'chatonly',
+                            ],
+                            [
+                                'field' => 'mmwpwastafftask',
+                                'value' => 'chatandcall',
+                            ]
+                        ]),
+
+                    //=========================checkbox untuk sertakan post title=========================
+                    Field::make('checkbox', 'mmwpwaincludeposttitle', 'Aktifkan Include Post Title')
+                        ->set_option_value('yes')
+                        ->set_help_text('Check this to include post title, contoh: jika post title anda berupa produk ayam goreng maka akan muncul di whatsapp: "Halo saya ingin bertanya tentang produk ayam goreng" atau sesuai dengan judul post Anda. <span class="mmwpwared mmwpwabold">Note: ini hanya berjalan pada taxonomy post saja (tidak include category dan tag)</span>. Pesan pada taxonomy category dan tag akan tetap menggunakan pesan yang Anda ketikan diatas.')
                         ->set_conditional_logic([
                             'relation' => 'OR',
                             [
@@ -427,6 +446,21 @@ function mmwpwa_register_fields()
                                 'value' => 'chatandcall',
                             ],
                         ]),
+
+                    //=========================input message untuk wa with post title=========================
+                    Field::make('text', 'mmwpwacustomwamessagestextwithposttitle', 'Custom Whatsapp Text with Post Title')
+                        ->set_help_text('Custom Whatsapp Text with Post Title')
+                        ->set_help_text('Contoh cukup Anda ketikan sbb: Halo%20saya%20ingin%20bertanya%20tentang%20produk%20 karena judul post akan ditambahkan otomatis diakhir kata yang Anda ketikan. <span class="mmwpwared mmwpwabold">pisahkan spasi dengan %20</span>')
+                        ->set_attribute('placeholder', 'Halo%20saya%20ingin%20bertanya%20tentang%20produk%20')
+                        ->set_conditional_logic([
+                            [
+                                'field' => 'mmwpwaincludeposttitle',
+                                'value' => true,
+                            ]
+                        ]),
+
+
+
 
 
 
