@@ -38,3 +38,34 @@ https://budiharyono.com/jasa-pembuatan-web/
 
 ==Carbon Fields Plugin==
 https://carbonfields.net/release-archive/
+
+
+
+== Changelog: ==
+
+V2.0.0 Beta (30 Juni 2023)
+
+Fix Bug
+Menambahkan Opsi disable di spesifik kategori by ID
+Menambahkan Opsi disable di specific tag by ID
+Menambahkan opsi disable di specific cpt
+Menambahkan opsi disable di specific page by ID
+Menambahkan opsi menggunakan atau tidak menggunakan logo perusahaan
+dll
+
+======
+
+V1.0.0 Beta (29 Juni 2023)
+
+Multiple staff
+pilihan: chat only, call only atau chat dan call
+fitur membedakan nomor chat Whatsapp dan nomor telepon
+pilihan template (desain) layout
+pilihan menggunakan logo perusahaan
+pilihan mengupload photo untuk staff
+pilihan custom pesan Whatsapp
+pilihan menyertakan post title atau product title (untuk Woocommerce) kedalam pesan Whatsapp
+pilihan custom text tombol chat dan telepon
+pilihan warna background untuk: container chat, top section, bottom dan staff item
+pilihan pilih warna background dan warna text untuk tombol chat dan telepon
+dll
