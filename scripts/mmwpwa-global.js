@@ -1,6 +1,34 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     jQuery(function () {
 
+        /*=========================data-containerbg=========================*/
+        const dataContainerbg = jQuery('#mmwpwapr').data('containerbg');
+        jQuery('#mmwpwapr').css('background-color', dataContainerbg);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /*=========================Check disInCat=========================*/
         const disInCatVal = jQuery('#mmwpwapr').data('cat');
         if (disInCatVal == 'disabled') {

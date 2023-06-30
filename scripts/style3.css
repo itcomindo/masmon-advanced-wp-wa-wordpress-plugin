@@ -86,6 +86,16 @@
   font-size: 15px;
 }
 
+#mmwpwatop.style3.nologo {
+  display: grid;
+  align-items: center;
+  padding: 8px;
+}
+#mmwpwatop.style3.nologo .mmwpwagreeting {
+  font-size: 16px;
+  text-align: center;
+}
+
 .mmwpwalogo.style3 {
   position: absolute;
   width: 60px;
@@ -97,11 +107,7 @@
   -o-border-radius: 50%;
   top: -38px;
 }
-#mmwpwatop.style3 .mmwpwagreeting {
-  font-size: 15px;
-  margin-top: 11px;
-  line-height: 1.2;
-}
+
 /**
 =========================
 *NAME: Bottom Section

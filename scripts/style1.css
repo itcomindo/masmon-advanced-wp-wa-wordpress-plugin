@@ -81,6 +81,15 @@
   height: 5rem;
   overflow: hidden;
 }
+#mmwpwatop.style1.nologo {
+  display: grid;
+  align-items: center;
+  padding: 8px;
+}
+#mmwpwatop.style1.nologo .mmwpwagreeting {
+  font-size: 16px;
+  text-align: left;
+}
 .mmwpwalogo.style1 {
   width: 60px;
   height: 60px;

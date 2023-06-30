@@ -68,7 +68,7 @@ function mmwpwa_register_fields()
                 ->set_width(33),
 
             //=========================if mmwpwastyle is style4 then create select option to choose staff photo=========================
-            Field::make('select', 'mmwpwastaffphotogreeting', 'Staff Photo')
+            Field::make('select', 'mmwpwastaffphotogreeting', 'Trigger Greeting Photo')
                 ->set_classes('mmwpwastylingsep-child')
                 ->add_options([
                     's1' => 'Staff 1',
@@ -83,7 +83,7 @@ function mmwpwa_register_fields()
                     's10' => 'Staff 10',
                     's11' => 'Staff 11',
                 ])
-                ->set_help_text('Select Staff Photo for your Whatsapp box')
+                ->set_help_text('Select Greeting Trigger Photo for your Whatsapp box (only for style 4)')
                 ->set_width(33)
                 ->set_conditional_logic([
                     [
@@ -96,7 +96,7 @@ function mmwpwa_register_fields()
             //=========================text in callout========================
             Field::make('text', 'mmwpwacallouttext', 'Callout Text')
                 ->set_classes('mmwpwastylingsep-child')
-                ->set_help_text('Callout Text for your Whatsapp box, ketik misal: Hello, selamat datang di website kami.')
+                ->set_help_text('Callout Text for your Whatsapp box, ketik misal: Hello, selamat datang di website kami. (hanya untuk style4)')
                 ->set_width(33)
                 ->set_default_value('Hello, selamat datang di website kami.')
                 ->set_conditional_logic([
@@ -192,6 +192,8 @@ function mmwpwa_register_fields()
                 ->set_default_value('#eeeeee')
                 ->set_width(50)
                 ->set_classes('mmwpwaitemstylingsep-child'),
+
+
             //=========================item text color=========================
             Field::make('color', 'mmwpwaitemtext', 'Item Text Color')
                 ->set_default_value('#000000')
@@ -262,14 +264,28 @@ function mmwpwa_register_fields()
             Field::make('separator', 'mmwpwalogoandotherstylingsep', 'Logo and other options')
                 ->set_classes('mmwacbseparator mmwpwalogoandotherstylingsep'),
 
+            //=========================checkbox to ask use logo on top section or not=========================
+            Field::make('checkbox', 'mmwpwauselogo', 'Use Logo')
+                ->set_option_value('yes')
+                ->set_default_value(false)
+                ->set_classes('mmwpwalogoandotherstylingsep-child'),
+
+
             //=========================logo=========================
             Field::make('image', 'mmwpwalogo', 'Logo')
                 ->set_value_type('url')
                 ->set_help_text('Upload your logo here, size recommended 50x50px tanpa warna background')
-                ->set_classes('mmwpwalogoandotherstylingsep-child'),
+                ->set_classes('mmwpwalogoandotherstylingsep-child')
+                ->set_required(true)
+                ->set_conditional_logic([
+                    [
+                        'field' => 'mmwpwauselogo',
+                        'value' => true,
+                    ],
+                ]),
 
             //=========================logo background color if mmwpwastyle is style2=========================
-            Field::make('color', 'mmwpwalogobg', 'Logo Background Color')
+            Field::make('color', 'mmwpwalogobg', 'Logo Background Color only for style2')
                 ->set_help_text('Logo background color is just for style2')
                 ->set_default_value('#01A356')
                 ->set_conditional_logic([
