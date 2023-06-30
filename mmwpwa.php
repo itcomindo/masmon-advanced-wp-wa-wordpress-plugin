@@ -6,7 +6,7 @@ defined('ABSPATH') || exit;
  *Plugin Name: Masmon Advanced WP WA
  *Plugin URI: https://budiharyono.com/jasa-pembuatan-web/
  *Description: Masmon WP WA is a plugin to display a WhatsApp button on the website.
- *Version: v1.0.1 beta
+ *Version: v2.0.0 beta
  *Author: Budi Haryono
  *Author URI: https://budiharyono.com/
     
