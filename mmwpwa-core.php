@@ -2,6 +2,8 @@
 defined('ABSPATH') || exit;
 
 
+
+
 function mmwpwa_load_scripts()
 {
     $mmwpwastatus = carbon_get_theme_option('mmwpwastatus');
@@ -23,6 +25,8 @@ function mmwpwa_load_scripts()
         } else {
             // wait
         }
+
+        wp_enqueue_script('mmwpwa-global-js', plugins_url('scripts/mmwpwa-global.js', __FILE__), array(), '1.0.0', true);
     }
 }
 add_action('wp_enqueue_scripts', 'mmwpwa_load_scripts');

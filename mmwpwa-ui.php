@@ -40,6 +40,86 @@ function mmwpwa_containerbg()
 
 function mmwpwa_frontend()
 {
+
+    //=========================check to run disInCat=========================
+    if (is_category()) {
+        $disInCat = disInCat(); // this is array that seperated by comma.
+        // create array from disInCat to check if catId is not in disInCat
+        $disInCat = explode(',', $disInCat);
+        // get category id
+        $cat = get_queried_object();
+        $catID = $cat->term_id;
+        // if catId is not in disInCat
+        if (in_array($catID, $disInCat)) {
+            $showInCat = 'data-cat="disabled"';
+        } else {
+            $showInCat = 'data-cat="enabled"';
+        }
+    }
+
+    //=========================Check to run disInPost ID=========================
+    if (is_single()) {
+        $disInPost = disInPost(); // this is array that seperated by comma.
+        // create array from disInPost to check if postId is not in disInPost
+        $disInPost = explode(',', $disInPost);
+        // get post id
+        $post = get_queried_object();
+        $postID = $post->ID;
+        // if postId is not in disInPost
+        if (in_array($postID, $disInPost)) {
+            $showInPost = 'data-post="disabled"';
+        } else {
+            $showInPost = 'data-post="enabled"';
+        }
+    }
+
+    //=========================Check to run disInPage ID=========================
+    if (is_page()) {
+        $disInPage = disInPage(); // this is array that seperated by comma.
+        // create array from disInPage to check if pageId is not in disInPage
+        $disInPage = explode(',', $disInPage);
+        // get page id
+        $page = get_queried_object();
+        $pageID = $page->ID;
+        // if pageId is not in disInPage
+        if (in_array($pageID, $disInPage)) {
+            $showInPage = 'data-page="disabled"';
+        } else {
+            $showInPage = 'data-page="enabled"';
+        }
+    }
+
+    //=========================Check to run disInTag ID=========================
+    if (is_tag()) {
+        $disInTag = disInTag(); // this is array that seperated by comma.
+        // create array from disInTag to check if tagId is not in disInTag
+        $disInTag = explode(',', $disInTag);
+        // get tag id
+        $tag = get_queried_object();
+        $tagID = $tag->term_id;
+        // if tagId is not in disInTag
+        if (in_array($tagID, $disInTag)) {
+            $showInTag = 'data-tag="disabled"';
+        } else {
+            $showInTag = 'data-tag="enabled"';
+        }
+    }
+
+    //=========================Check to run disInCpt=========================
+    if (is_singular()) {
+        $disInCpt = disInCpt(); // this is array that seperated by comma.
+        // create array from disInCpt to check if cptId is not in disInCpt
+        $disInCpt = explode(',', $disInCpt);
+        // get cpt name
+        $cpt = get_post_type();
+        // if cptId is not in disInCpt
+        if (in_array($cpt, $disInCpt)) {
+            $showInCpt = 'data-cpt="disabled"';
+        } else {
+            $showInCpt = 'data-cpt="enabled"';
+        }
+    }
+
     $mmwpwa_template = mmwpwa_template();
     if ($mmwpwa_template == 'style4') {
         // data-photo
@@ -64,7 +144,7 @@ function mmwpwa_frontend()
     }
 
 ?>
-    <div id="mmwpwapr" class="<?php echo mmwpwa_template() . ' ' . mmwpwa_chat_position() . ' ' . $flstat ?> " style="background-color: <?php echo mmwpwa_containerbg(); ?>;" data-cond="<?php echo $mmwpwafirstload; ?>" data-style="<?php echo $mmwpwa_template; ?>" data-position="<?php echo  mmwpwa_chat_position(); ?>" <?php echo $dataphoto . ' ' . $datacallout ?>>
+    <div id="mmwpwapr" <?php echo $showInCpt; ?> <?php echo $showInTag; ?> <?php echo $showInPage; ?> <?php echo $showInCat ?> <?php echo $showInPost ?> class="<?php echo mmwpwa_template() . ' ' . mmwpwa_chat_position() . ' ' . $flstat ?> " style="background-color: <?php echo mmwpwa_containerbg(); ?>;" data-cond="<?php echo $mmwpwafirstload; ?>" data-style="<?php echo $mmwpwa_template; ?>" data-position="<?php echo  mmwpwa_chat_position(); ?>" <?php echo $dataphoto . ' ' . $datacallout ?>>
 
         <!-- toggle close and open -->
         <?php echo mmwpwa_closechatbutton(); ?>
@@ -273,13 +353,6 @@ function mmwpwa_complex_staff_data()
             $chattextcolor = $chattextcolor;
         }
 
-
-
-
-
-
-
-
         //=========================wa text button=========================
         $chattext = carbon_get_theme_option('mmwpwabuttonwachattxt');
         if (empty($chattext)) {
@@ -428,6 +501,9 @@ function mmwpwa_complex_staff_data()
                     <!-- staff job -->
                     <span class="staffjob <?php echo mmwpwa_template(); ?>">
                         <?php echo $staffjob; ?>
+                    </span>
+                    <span>
+                        <?php echo disInCat(); ?>
                     </span>
                 </div>
 

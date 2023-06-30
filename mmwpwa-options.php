@@ -305,16 +305,10 @@ function mmwpwa_register_fields()
                 ->set_help_text('Enter Tag ID seperate by comma to disable WP WA in that tag: contoh: 1,2,3')
                 ->set_width(33),
 
-            // input to disable in specific author by id
-            Field::make('text', 'mmwpwadisableinauthor', 'Disable in Author')
-                ->set_classes('mmwpwalogoandotherstylingsep-child')
-                ->set_help_text('Enter Author ID seperate by comma to disable WP WA in that author: contoh: 1,2,3')
-                ->set_width(33),
-
             // input to disable in specific custom post type by id
             Field::make('text', 'mmwpwadisableincustomposttype', 'Disable in Custom Post Type')
                 ->set_classes('mmwpwalogoandotherstylingsep-child')
-                ->set_help_text('Enter Custom Post Type ID seperate by comma to disable WP WA in that custom post type: contoh: 1,2,3')
+                ->set_help_text('Ketikn nama custom post type yang ingin di disable, contoh: product, portfolio, dll. Di pisahkan dengan koma jika lebih dari satu')
                 ->set_width(33),
 
 

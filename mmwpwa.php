@@ -39,6 +39,67 @@ function mmwpwa_check_carbon_fields_deactivation()
 
 
 include 'mmwpwa-options.php';
+//=========================Disabled in Category ID=========================
+function disInCat()
+{
+    $disInCat = carbon_get_theme_option('mmwpwadisableincategory');
+    if (empty($disInCat)) {
+        // do nothing
+    } else {
+        $disInCat = $disInCat;
+        return $disInCat;
+    }
+}
+
+//=========================Disabled in Post Id=========================
+function disInPost()
+{
+    $disInPost = carbon_get_theme_option('mmwpwadisableinpost');
+    if (empty($disInPost)) {
+        // do nothing
+    } else {
+        $disInPost = $disInPost;
+        return $disInPost;
+    }
+}
+
+
+//=========================Disabled in Page Id=========================
+function disInPage()
+{
+    $disInPage = carbon_get_theme_option('mmwpwadisableinpage');
+    if (empty($disInPage)) {
+        // do nothing
+    } else {
+        $disInPage = $disInPage;
+        return $disInPage;
+    }
+}
+
+//=========================Disabled in Tag ID=========================
+function disInTag()
+{
+    $disInTag = carbon_get_theme_option('mmwpwadisableintag');
+    if (empty($disInTag)) {
+        // do nothing
+    } else {
+        $disInTag = $disInTag;
+        return $disInTag;
+    }
+}
+
+//=========================Disabled in Custom Post Type By Name=========================
+function disInCpt()
+{
+    $disInCpt = carbon_get_theme_option('mmwpwadisableincustomposttype');
+    if (empty($disInCpt)) {
+        // do nothing
+    } else {
+        $disInCpt = $disInCpt;
+        return $disInCpt;
+    }
+}
+
 
 
 
